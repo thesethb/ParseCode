@@ -1,0 +1,27 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                 Margin   R-squared:                       0.347
+Model:                            OLS   Adj. R-squared:                  0.337
+Method:                 Least Squares   F-statistic:                     35.70
+Date:                Mon, 07 Dec 2020   Prob (F-statistic):           1.48e-18
+Time:                        11:08:10   Log-Likelihood:                -820.92
+No. Observations:                 206   AIC:                             1650.
+Df Residuals:                     202   BIC:                             1663.
+Df Model:                           3                                         
+Covariance Type:            nonrobust                                         
+===============================================================================
+                  coef    std err          t      P>|t|      [0.025      0.975]
+-------------------------------------------------------------------------------
+const           8.2531      1.506      5.479      0.000       5.283      11.223
+Avg_Def_Adj    -0.2016      0.228     -0.885      0.377      -0.651       0.247
+Lean            0.7042      0.071      9.855      0.000       0.563       0.845
+Fresh          -3.3993      2.821     -1.205      0.230      -8.962       2.163
+==============================================================================
+Omnibus:                       19.861   Durbin-Watson:                   1.526
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):               46.990
+Skew:                          -0.399   Prob(JB):                     6.26e-11
+Kurtosis:                       5.199   Cond. No.                         65.6
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

@@ -1,0 +1,30 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                 Margin   R-squared:                       0.666
+Model:                            OLS   Adj. R-squared:                  0.665
+Method:                 Least Squares   F-statistic:                     979.3
+Date:                Mon, 07 Dec 2020   Prob (F-statistic):               0.00
+Time:                        11:08:11   Log-Likelihood:                -11266.
+No. Observations:                2960   AIC:                         2.255e+04
+Df Residuals:                    2953   BIC:                         2.259e+04
+Df Model:                           6                                         
+Covariance Type:            nonrobust                                         
+===============================================================================
+                  coef    std err          t      P>|t|      [0.025      0.975]
+-------------------------------------------------------------------------------
+const          13.7103      0.445     30.831      0.000      12.838      14.582
+Lean            0.7305      0.011     64.366      0.000       0.708       0.753
+Minority        4.2843      0.411     10.420      0.000       3.478       5.091
+Nat_Margin      0.8500      0.039     21.976      0.000       0.774       0.926
+Fresh          -5.0196      0.534     -9.393      0.000      -6.067      -3.972
+Avg_Def_Adj     0.3692      0.053      6.940      0.000       0.265       0.474
+Has_Pres       -0.2051      0.496     -0.414      0.679      -1.177       0.767
+==============================================================================
+Omnibus:                      158.668   Durbin-Watson:                   1.551
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              617.528
+Skew:                           0.013   Prob(JB):                    8.04e-135
+Kurtosis:                       5.237   Cond. No.                         88.2
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.

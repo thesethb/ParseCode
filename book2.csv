@@ -1,0 +1,9 @@
+﻿congress,chamber,icpsr,state_icpsr,district_code,state_abbrev,party_code,Averages,last_means,bioname,bioguide_id,born,died,nominate_dim1,nominate_dim2,nominate_log_likelihood,nominate_geo_mean_probability,nominate_number_of_votes,nominate_number_of_errors,conditional,nokken_poole_dim1,nokken_poole_dim2
+114,House,31101,73,1,WA,100,0,1,"DelBENE, Suzan K.",D000617,1962,,-0.281,-0.229,-104.77968,0.91084,,,,,
+114,House,31102,51,4,KY,200,0,1,"MASSIE, Thomas",M001184,1971,,0.681,-0.732,-395.2108,0.70134,,,,,
+114,House,31103,12,10,NJ,100,0,1,"PAYNE, Donald, Jr.",P000604,1958,,-0.517,-0.101,-76.07385,0.91997,,,,,
+114,House,39301,48,6,SC,100,0,1,"CLYBURN, James Enos",C000537,1940,,-0.464,0.254,-92.37955,0.91743,,,,,
+114,House,39304,49,29,TX,100,0,1,"GREEN, Raymond Eugene (Gene)",G000410,1947,,-0.324,0.453,-275.63,0.77438,,,,,
+114,House,39305,49,30,TX,100,0,1,"JOHNSON, Eddie Bernice",J000126,1935,,-0.485,0.204,-126.2908,0.88575,,,,,
+114,House,39307,40,3,VA,100,0,1,"SCOTT, Robert C.",S000185,1947,,-0.45,0.015,-87.95757,0.92415,,,,,
+114,House,39308,40,6,VA,200,0,1,"GOODLATTE, Robert William",G000289,1952,,0.496,-0.002,-102.44023,0.91207,,,,,

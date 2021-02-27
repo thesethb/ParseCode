@@ -1,0 +1,43 @@
+                            OLS Regression Results                            
+==============================================================================
+Dep. Variable:                 Margin   R-squared:                       0.706
+Model:                            OLS   Adj. R-squared:                  0.704
+Method:                 Least Squares   F-statistic:                     414.9
+Date:                Sun, 29 Nov 2020   Prob (F-statistic):               0.00
+Time:                        09:24:15   Log-Likelihood:                -11077.
+No. Observations:                2960   AIC:                         2.219e+04
+Df Residuals:                    2942   BIC:                         2.230e+04
+Df Model:                          17                                         
+Covariance Type:            nonrobust                                         
+==================================================================================
+                     coef    std err          t      P>|t|      [0.025      0.975]
+----------------------------------------------------------------------------------
+const              7.4899      1.663      4.503      0.000       4.228      10.751
+Lean               0.8447      0.022     37.824      0.000       0.801       0.888
+Minority          -1.3308      1.323     -1.006      0.315      -3.925       1.263
+Nat_Margin         1.0396      0.101     10.268      0.000       0.841       1.238
+Fresh             -3.0353      1.180     -2.572      0.010      -5.350      -0.721
+Avg_Def            0.7876      0.114      6.922      0.000       0.565       1.011
+Midterm           -0.2107      1.018     -0.207      0.836      -2.208       1.786
+Party              0.9539      0.997      0.957      0.339      -1.001       2.909
+Year1              0.1213      0.102      1.186      0.236      -0.079       0.322
+Has_Pres           4.9510      1.362      3.636      0.000       2.281       7.621
+DefxParty          0.0960      0.078      1.231      0.219      -0.057       0.249
+DefxLean          -0.0075      0.002     -4.671      0.000      -0.011      -0.004
+DefxMin            0.2835      0.094      3.004      0.003       0.098       0.469
+DefxNat_Margin    -0.0043      0.007     -0.596      0.551      -0.019       0.010
+DefxYear1         -0.0582      0.008     -7.542      0.000      -0.073      -0.043
+DefxFresh         -0.0935      0.087     -1.079      0.280      -0.263       0.076
+DefxMid           -0.1137      0.074     -1.539      0.124      -0.259       0.031
+DefxHas_Pres      -0.3177      0.094     -3.381      0.001      -0.502      -0.133
+==============================================================================
+Omnibus:                      262.007   Durbin-Watson:                   1.674
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):              939.304
+Skew:                          -0.400   Prob(JB):                    1.08e-204
+Kurtosis:                       5.642   Cond. No.                     3.65e+03
+==============================================================================
+
+Notes:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+[2] The condition number is large, 3.65e+03. This might indicate that there are
+strong multicollinearity or other numerical problems.
