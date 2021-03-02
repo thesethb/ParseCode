@@ -2,10 +2,10 @@ import pandas as pd
 
 lean = ["2006-10.csv","2006-10.csv","2006-10.csv","2006-10.csv","2006-10.csv"
         ,"2006-10.csv","2012-2014.csv","2012-2014.csv","2016-2018.csv","2016-2018.csv"]
-lean_num = [1,1,2,2,3,3,3,3,3,3]
+lean_num = [1,1,2,2,3,3,3,3,2,2]
 avg_margin = "member_election_list_best.csv"
 
-df = pd.read_csv(lean)
+df = pd.read_csv(lean[0])
 
 obama = df.Obama
 mccain=df.McCain
