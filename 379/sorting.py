@@ -1,10 +1,11 @@
 import pandas as pd
-votes = ['Votes/H106_votes.csv','Votes/H107_votes.csv','Votes/H108_votes.csv','Votes/HS109_votes.csv','Votes/HS110_votes.csv','Votes/HS111_votes.csv'
-         ,'Votes/HS112_votes.csv','Votes/HS113_votes.csv','Votes/HS114_votes.csv','Votes/H115_votes.csv']
-members = ['Votes/H106_members.csv','Votes/H107_members.csv','Votes/H108_members.csv','Votes/H109_members.csv','Votes/H110_members.csv'
-           ,'Votes/H111_members.csv','Votes/H112_members.csv','Votes/H113_members.csv','Votes/H114_members.csv','Votes/H115_members.csv']
-bills = ['Votes/H106_rollcalls.csv','Votes/H107_rollcalls.csv','Votes/H108_rollcalls.csv','Votes/H109_rollcalls.csv','Votes/H110_rollcalls.csv'
-           ,'Votes/H111_rollcalls.csv','Votes/H112_rollcalls.csv','Votes/H113_rollcalls.csv','Votes/H114_rollcalls.csv','Votes/H115_rollcalls.csv']
+votes = ['Votes/S116_votes.csv','Votes/S115_votes.csv','Votes/S114_votes.csv','Votes/S113_votes.csv','Votes/S112_votes.csv','Votes/S111_votes.csv']
+members = ['Votes/S116_members.csv','Votes/S115_members.csv','Votes/S114_members.csv','Votes/S113_members.csv','Votes/S112_members.csv','Votes/S111_members.csv']
+bills = ['Votes/S116_rollcalls.csv','Votes/S115_rollcalls.csv','Votes/S114_rollcalls.csv','Votes/S113_rollcalls.csv','Votes/S112_rollcalls.csv','Votes/S111_rollcalls.csv']
+majority = ['rep','rep','rep','dem','dem','dem']
+w = open('bill_list_best.csv', 'w')
+w.write('Congress,Majority, votenum, min_vote,maj_vote,if_partisan,case_num,bill_num,vote_name, bill_name,more,more1 \n')
+w.close()
 z = 0
 while z < len(members):
     #Part1: Assigning Party
@@ -48,18 +49,33 @@ while z < len(members):
                 if cast_code[n] == 6:
                     rep_avg1 += 1
             n += 1
-        dem_avg = dem_avg/dem_avg1
-        rep_avg = rep_avg/rep_avg1
-        if dem_avg > .5 and rep_avg < .5:
-            billlist.append([billnum[n-1],1,6,1])
-            print('affirmative')
-        elif dem_avg < .5 and rep_avg > .5:
-            billlist.append([billnum[n-1],6,1,1])
-            print('hi')
-        elif dem_avg > .5:
-            billlist.append([billnum[n - 1], 1, 1, 0])
+        dem_avg2 = dem_avg/dem_avg1
+        rep_avg2 = rep_avg/rep_avg1
+        if majority[z] == 'rep':
+            maj_avg2,maj_avg,maj_avg1 = rep_avg2,rep_avg,rep_avg1
+            min_avg2, min_avg, min_avg1 = dem_avg2, dem_avg, dem_avg1
         else:
-            billlist.append([billnum[n - 1], 6, 6, 0])
+            maj_avg2, maj_avg, maj_avg1 = dem_avg2, dem_avg, dem_avg1
+            min_avg2, min_avg, min_avg1 = rep_avg2, rep_avg, rep_avg1
+        case_num = 0
+        if (maj_avg + min_avg > 60 and min_avg2 < .5):
+            case_num = 2
+        elif maj_avg2 > .5 and min_avg2 > .5:
+            case_num = 1
+        elif maj_avg + min_avg > 50 and maj_avg <= (maj_avg + min_avg) / 2:
+            case_num = 3
+        elif maj_avg + min_avg < (maj_avg + min_avg) / 2 and maj_avg2 > .5:
+            case_num = 4
+        if min_avg2 > .5 and maj_avg2 < .5:
+            billlist.append([billnum[n-1],1,6,1,case_num])
+            print('affirmative')
+        elif min_avg2 < .5 and maj_avg2 > .5:
+            billlist.append([billnum[n-1],6,1,1,case_num])
+            print('hi')
+        elif min_avg2 < .5:
+            billlist.append([billnum[n - 1], 6, 6, 0,case_num])
+        else:
+            billlist.append([billnum[n - 1], 1, 1, 0,case_num])
     #Part3, attaching info to bills and exporting to spreadsheet
     df = pd.read_csv(bills[z])
     con = df.congress
@@ -74,7 +90,8 @@ while z < len(members):
                 string2 = str(info[3][n])
                 string3 = str(info[2][n])
                 print(str(bill[0]) + ', ' + str(bill[1]) + ', ' + str(bill[2]) + ', ' + str(bill[3]) + ', '+ str(info[0][n]) + ', ' +  str(info[1][n]) + ', ' +  str(info[2][n]).replace(',', ';') + ', ' +  str(info[3][n]).replace(',', ';') + ', ' +  str(info[4][n]).replace(',', ';'))
-                s = str(106 + z) + ', ' + str(bill[0]) + ', ' + str(bill[1]) + ', ' + str(bill[2]) + ', ' + str(bill[3]) + ', '+ str(info[0][n]) + ', ' +  str(info[1][n]) + ', ' +  string3.replace(',', ';') + ', ' +  string2.replace(',', ';') + ', ' +  string1.replace(',', ';') + '\n'
+                print(str(bill[4]))
+                s = str(116 - z) + ', ' + str(majority[z]) + ', ' + str(bill[0]) + ', ' + str(bill[1]) + ', ' + str(bill[2]) + ', ' + str(bill[3]) +',' + str(bill[4]) + ', '+ str(info[0][n]) + ', ' +  str(info[1][n]) + ', ' +  string3.replace(',', ';') + ', ' +  string2.replace(',', ';') + ', ' +  string1.replace(',', ';')  + '\n'
                 w.write(s)
             n += 1
     z += 1
